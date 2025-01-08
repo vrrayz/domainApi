@@ -19,8 +19,8 @@ class DomainApiController extends Controller
             'ApiKey' => env('NAMECHEAP_API_KEY'),
             'UserName' => env('NAMECHEAP_API_USER'),
             'ClientIp' => env('NAMECHEAP_CLIENT_IP'),
-            'Command' => 'namecheap.domains.check',
-            'DomainList' => 'domain1.com',
+            'Command' => 'namecheap.domains.check', // this is dynamic
+            'DomainList' => 'domain1.com', // as an example, this param is required for the namecheap.domains.check command
         ];
         $url_with_params = $url . '?' . http_build_query($params);
 
@@ -52,5 +52,17 @@ class DomainApiController extends Controller
         $outputInArray = json_decode(json_encode($xml), true);
 
         dd($outputInArray);
+
+        //     $responseFormat = [▼
+        //         "@attributes" =>  [],
+        //         "Errors" => [],
+        //         "Warnings" => [],
+        //         "RequestedCommand" => "namecheap.domains.check",
+        //         "CommandResponse" => [],
+        //         "Server" => "PHX01SBAPIEXT05",
+        //         "GMTTimeDifference" => "--5:00",
+        //         "ExecutionTime" => "0.01",
+        // ];
+        // For the responseFormat. if Errors key isn't empty then CommandResponse will not be present
     }
 }
