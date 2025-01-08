@@ -43,11 +43,13 @@ class DomainApiController extends Controller
         $output = curl_exec($ch);
 
 
-
         // close curl resource to free up system resources
 
         curl_close($ch);
 
-        dd($output);
+        $xml = simplexml_load_file($output);
+        $outputInArray = json_decode(json_encode($xml), true);
+
+        dd($outputInArray);
     }
 }
