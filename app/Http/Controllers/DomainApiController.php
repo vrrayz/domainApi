@@ -17,6 +17,7 @@ class DomainApiController extends Controller
         $params = [
             'ApiUser' => env('NAMECHEAP_API_USER'),
             'ApiKey' => env('NAMECHEAP_API_KEY'),
+            'UserName' => env('NAMECHEAP_API_USER'),
             'Command' => 'namecheap.domains.check',
             'ClientIp' => env('NAMECHEAP_CLIENT_IP')
         ];
