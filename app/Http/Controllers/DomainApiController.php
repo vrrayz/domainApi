@@ -13,12 +13,20 @@ class DomainApiController extends Controller
         // create curl resource
 
         $ch = curl_init();
+        $url = 'https://' . env('NAMECHEAP_SERVICE_URL') . '/xml.response';
+        $params = [
+            'ApiUser' => env('NAMECHEAP_API_USER'),
+            'ApiKey' => env('NAMECHEAP_API_KEY'),
+            'Command' => 'namecheap.domains.check',
+            'ClientIp' => env('NAMECHEAP_CLIENT_IP')
+        ];
+        $url_with_params = $url . '?' . http_build_query($params);
 
 
 
         // set url
 
-        curl_setopt($ch, CURLOPT_URL, "example.com");
+        curl_setopt($ch, CURLOPT_URL, $url_with_params);
 
 
 
