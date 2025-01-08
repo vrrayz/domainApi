@@ -47,7 +47,8 @@ class DomainApiController extends Controller
 
         curl_close($ch);
 
-        $xml = simplexml_load_file('' . $output . '');
+        // libxml_use_internal_errors(true); // Enable internal error handling
+        $xml = simplexml_load_string($output);
         $outputInArray = json_decode(json_encode($xml), true);
 
         dd($outputInArray);
