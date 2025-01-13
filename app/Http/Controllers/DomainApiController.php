@@ -284,7 +284,8 @@ class DomainApiController extends Controller
             'ApiKey' => env('NAMECHEAP_API_KEY'),
             'UserName' => env('NAMECHEAP_API_USER'),
             'ClientIp' => env('NAMECHEAP_CLIENT_IP'),
-            'PaymentType' => 'Creditcard', // this is dynamic
+            'Command' => 'namecheap.users.createaddfundsrequest', // this is dynamic
+            'PaymentType' => 'Creditcard',
             'Amount' => 40,
             'ReturnUrl' => env('APP_URL') . '/response', // this is dynamic
         ];
