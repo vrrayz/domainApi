@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [DomainApiController::class, 'index']);
+Route::get('/response', function () {
+    dd('Payment Response Done');
+});
 Route::get('/create-domain', [DomainApiController::class, 'createDomain']);
 Route::get('/get-domain-pricing', [DomainApiController::class, 'getDomainPricing']);
 Route::get('/get-ssl-pricing', [DomainApiController::class, 'getSslPricing']);
+Route::get('/add-funds', [DomainApiController::class, 'addFunds']);
