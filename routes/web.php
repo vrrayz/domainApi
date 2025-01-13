@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [DomainApiController::class, 'index']);
+Route::get('/create-domain', [DomainApiController::class, 'createDomain']);

@@ -65,4 +65,98 @@ class DomainApiController extends Controller
         // ];
         // For the responseFormat. if Errors key isn't empty then CommandResponse will not be present
     }
+    public function createDomain(Request $request)
+    {
+        // create curl resource
+
+        $ch = curl_init();
+        $url = 'https://' . env('NAMECHEAP_SERVICE_URL') . '/xml.response';
+        $params = [
+            'ApiUser' => env('NAMECHEAP_API_USER'),
+            'ApiKey' => env('NAMECHEAP_API_KEY'),
+            'UserName' => env('NAMECHEAP_API_USER'),
+            'ClientIp' => env('NAMECHEAP_CLIENT_IP'),
+            'Command' => 'namecheap.domains.create', // this is dynamic
+            'DomainName' => 'xepho-test1.com',
+            'Years' => 2,
+            'RegistrantFirstName' => 'James',
+            'RegistrantLastName' => 'Maddison',
+            'RegistrantAddress1' => '72 Harrogate Road',
+            'RegistrantCity' => 'Ruscombe',
+            'RegistrantStateProvince' => 'Berkshire',
+            'RegistrantPostalCode' => 'RG10 8AA',
+            'RegistrantCountry' => 'United Kingdom',
+            'RegistrantPhone' => '+447704256986',
+            'RegistrantEmailAddress' => 'emmyvic98@gmail.com',
+            'TechFirstName' => 'Xepho',
+            'TechLastName' => 'Co',
+            'TechAddress1' => '72 Harrogate Road',
+            'TechCity' => 'Ruscombe',
+            'TechStateProvince' => 'Berkshire',
+            'TechPostalCode' => 'RG10 8AA',
+            'TechCountry' => 'United Kingdom',
+            'TechPhone' => '+447704256986',
+            'TechEmailAddress' => 'emmyvic98@gmail.com',
+            'AdminFirstName' => 'Xepho',
+            'AdminLastName' => 'Co',
+            'AdminAddress1' => '72 Harrogate Road',
+            'AdminCity' => 'Ruscombe',
+            'AdminStateProvince' => 'Berkshire',
+            'AdminPostalCode' => 'RG10 8AA',
+            'AdminCountry' => 'United Kingdom',
+            'AdminPhone' => '+447704256986',
+            'AdminEmailAddress' => 'emmyvic98@gmail.com',
+            'AuxBillingFirstName' => 'Xepho',
+            'AuxBillingLastName' => 'Co',
+            'AuxBillingAddress1' => '72 Harrogate Road',
+            'AuxBillingCity' => 'Ruscombe',
+            'AuxBillingStateProvince' => 'Berkshire',
+            'AuxBillingPostalCode' => 'RG10 8AA',
+            'AuxBillingCountry' => 'United Kingdom',
+            'AuxBillingPhone' => '+447704256986',
+            'AuxBillingEmailAddress' => 'emmyvic98@gmail.com',
+        ];
+        $url_with_params = $url . '?' . http_build_query($params);
+
+
+
+        // set url
+
+        curl_setopt($ch, CURLOPT_URL, $url_with_params);
+
+
+
+        //return the transfer as a string
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+
+
+        // $output contains the output string
+
+        $output = curl_exec($ch);
+
+
+        // close curl resource to free up system resources
+
+        curl_close($ch);
+
+        // libxml_use_internal_errors(true); // Enable internal error handling
+        $xml = simplexml_load_string($output);
+        $outputInArray = json_decode(json_encode($xml), true);
+
+        dd($outputInArray);
+
+        //     $responseFormat = [▼
+        //         "@attributes" =>  [],
+        //         "Errors" => [],
+        //         "Warnings" => [],
+        //         "RequestedCommand" => "namecheap.domains.check",
+        //         "CommandResponse" => [],
+        //         "Server" => "PHX01SBAPIEXT05",
+        //         "GMTTimeDifference" => "--5:00",
+        //         "ExecutionTime" => "0.01",
+        // ];
+        // For the responseFormat. if Errors key isn't empty then CommandResponse will not be present
+    }
 }
