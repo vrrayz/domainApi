@@ -86,7 +86,7 @@ class DomainApiController extends Controller
             'RegistrantStateProvince' => 'Berkshire',
             'RegistrantPostalCode' => 'RG10 8AA',
             'RegistrantCountry' => 'United Kingdom',
-            'RegistrantPhone' => '+447.704256986',
+            'RegistrantPhone' => '+447.704256986', // phone number format must be +NNN.NNNNNNNNNN
             'RegistrantEmailAddress' => 'emmyvic98@gmail.com',
             'TechFirstName' => 'Xepho',
             'TechLastName' => 'Co',
@@ -113,7 +113,7 @@ class DomainApiController extends Controller
             'AuxBillingStateProvince' => 'Berkshire',
             'AuxBillingPostalCode' => 'RG10 8AA',
             'AuxBillingCountry' => 'United Kingdom',
-            'AuxBillingPhone' => '+447704256986',
+            'AuxBillingPhone' => '+447.704256986',
             'AuxBillingEmailAddress' => 'emmyvic98@gmail.com',
         ];
         $url_with_params = $url . '?' . http_build_query($params);
