@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// LIVE SERVER === https://coral-bear-659564.hostingersite.com/
+
 Route::get('/', [DomainApiController::class, 'index']);
 Route::get('/response', function () {
     dd('Payment Response Done');

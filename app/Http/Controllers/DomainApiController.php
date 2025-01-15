@@ -51,7 +51,8 @@ class DomainApiController extends Controller
         $xml = simplexml_load_string($output);
         $outputInArray = json_decode(json_encode($xml), true);
 
-        dd($outputInArray);
+        // dd($outputInArray);
+        dd($outputInArray['CommandResponse']['DomainCheckResult']['@attributes']['Available']);
 
         //     $responseFormat = [▼
         //         "@attributes" =>  [],
