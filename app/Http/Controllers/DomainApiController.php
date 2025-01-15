@@ -78,7 +78,7 @@ class DomainApiController extends Controller
             'UserName' => env('NAMECHEAP_API_USER'),
             'ClientIp' => env('NAMECHEAP_CLIENT_IP'),
             'Command' => 'namecheap.domains.create', // this is dynamic
-            'DomainName' => 'xepho-test1.com',
+            'DomainName' => 'xepho-test4.com',
             'Years' => 2,
             'RegistrantFirstName' => 'James',
             'RegistrantLastName' => 'Maddison',
